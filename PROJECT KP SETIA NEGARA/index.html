@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMP Setia Negara</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+    <!-- Popup Slider Informasi -->
+<div id="popup-info" class="popup-overlay">
+    <div class="popup-card">
+
+        <span class="close-btn">&times;</span>
+
+        <button class="prev">&#10094;</button>
+
+        <div class="popup-slider">
+            <a href="pendaftaran.html">
+                <img src="image/logosetianegara.jpg.png" class="popup-slide active">
+            </a>
+            <a href="spmb.html">
+                <img src="image/spmb.jpg.jpeg" class="popup-slide">
+            </a>
+        </div>
+
+        <button class="next">&#10095;</button>
+
+    </div>
+</div>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <div class="nav-logo">
+                <a href="#beranda" class="nav-logo">
+                    <img src="image/logosetianegara.jpg.png" alt="Logo SMP Setia Negara">
+                    <span>SMP Setia Negara</span>
+                </a>
+            </div>
+
+            <div class="burger" id="burger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#beranda" class="nav-link">Beranda</a></li>
+                <li><a href="#profil" class="nav-link">Profil</a></li>
+                <li><a href="#denah" class="nav-link">Denah & Kontak</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Informasi ▼</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="pagefasilitas/fasilitas.html">Fasilitas</a></li>
+                        <li><a href="pageekskul/ekskul.html">Ekstrakurikuler</a></li>
+                        <li><a href="pageprestasi/prestasi.html">Prestasi</a></li>
+                        <li><a href="pagependaftaran/pendaftaran.html">Pendaftaran</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--BERANDA-->
+    <section id="beranda" class="hero">
+    <div class="slider-container">
+        <div class="slider">
+
+            <div class="slide active">
+                <img src="image/gedung 1.jpg" alt="Gedung Sekolah 1">
+            </div>
+
+            <div class="slide">
+                <img src="image/foto2.jpg" alt="Gedung Sekolah 2">
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="slide-content">
+                <h1>Selamat Datang di SMP Setia Negara</h1>
+                <p>Membangun Generasi Emas Indonesia</p>
+            </div>
+
+        </div>
+
+        <div class="slider-nav">
+            <span class="nav-dot active" onclick="currentSlide(1)"></span>
+            <span class="nav-dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+    </section>
+
+    <!-- Section Profil Sekolah -->
+    <section id="profil" class="profil">
+        <div class="container">
+            <div class="profil-content">
+                <div class="profil-image">
+                    <img src="image/gedung 1.jpg" alt="Gedung Sekolah">
+                </div>
+                <div class="profil-text">
+                    <h2>Tentang SMP Setia Negara</h2>
+                    <p>
+                        SMP Setia Negara adalah sekolah menengah pertama yang berkomitmen memberikan pendidikan berkualitas 
+                        dengan fasilitas modern dan tenaga pengajar yang berpengalaman. Didirikan tahun 2005, sekolah kami 
+                        telah melahirkan banyak prestasi di tingkat nasional dan internasional.
+                    </p>
+                    <div class="visi-misi">
+                        <button class="vm-btn" onclick="openModal('visi')">
+                            <i class="fas fa-eye"></i> Visi
+                        </button>
+                        <button class="vm-btn" onclick="openModal('misi')">
+                            <i class="fas fa-bullseye"></i> Misi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Visi Misi -->
+    <div id="visiModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Visi Sekolah</h2>
+            <p>Menjadi sekolah menengah pertama unggulan yang beriman, bertakwa kepada Tuhan YME, berakhlak mulia, berwawasan global, berprestasi akademik dan non-akademik tingkat nasional pada tahun 2030.</p>
+        </div>
+    </div>
+
+    <div id="misiModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Misi Sekolah</h2>
+            <ul>
+                <li>Mengoptimalkan pembelajaran berbasis karakter dan berbasis IT</li>
+                <li>Mengembangkan potensi siswa secara optimal</li>
+                <li>Meningkatkan kompetensi guru dan tenaga kependidikan</li>
+                <li>Mengoptimalkan sarana dan prasarana pendidikan</li>
+                <li>Membangun kerja sama yang kondusif dengan orang tua/wali siswa</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section Sambutan Kepala Sekolah -->
+    <section id="sambutan" class="sambutan">
+        <div class="container">
+            <div class="sambutan-content">
+                <div class="sambutan-text">
+                    <h2>Sambutan Kepala Sekolah</h2>
+                    <p>
+                        Assalamu'alaikum Warahmatullahi Wabarakatuh,<br><br>
+                        
+                        Selamat datang di website resmi SMP Setia Negara. Dengan penuh kebanggaan, saya mengundang 
+                        semua calon siswa dan orang tua untuk mengenal lebih dekat sekolah kami yang telah terbukti 
+                        melahirkan generasi unggul dan berprestasi.<br><br>
+                        
+                        Bersama kita wujudkan cita-cita anak bangsa yang beriman, bertakwa, berilmu dan berakhlak mulia.
+                    </p>
+                </div>
+                <div class="sambutan-image">
+                    <img src="">
+                    <h4>Bapak Suyanto, S.kom.</h4>
+                        <p>Kepala Sekolah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Denah & Kontak -->
+    <section id="denah" class="denah">
+        <div class="container">
+            <div class="denah-content">
+                <div class="maps-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9646095565063!2d106.80755507573328!3d-6.398562162582994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95c43db7881%3A0xc6d00e2c0f43c6f1!2sSMP%20Setia%20Negara!5e0!3m2!1sid!2sid!4v1776257750193!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+                <div class="kontak-info">
+                    <h3>Jam Operasional</h3>
+                    <div class="jam-operasional">
+                        <p><i class="fas fa-clock"></i> Senin-Jumat: 07:30 - 14:00</p>
+                    </div>
+                    <h3>Alamat</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Sawangan No.23, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16432</p>
+                    <p><i class="fas fa-phone"></i> (021)77215461</p>
+                    <p><i class="fas fa-envelope"></i> tusmp_setianegara@yahoo.co.id</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SMP Setia Negara</h3>
+                    <p>Sekolah berprestasi dengan visi mencetak generasi unggul Indonesia.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#profil">Profil</a></li>
+                        <li><a href="#sambutan">Sambutan</a></li>
+                        <li><a href="#denah">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi Kami</h4>
+                    <p><i class="fas fa-phone"></i> (021) 12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@smp-setianegara.sch.id</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SMP Setia Negara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader-wrapper">
+        <div class="spinner"></div>
+        <img src="../image/logosetianegara.jpg.png" alt="Logo SMP" class="loader-logo">
+    </div>
+</div>
+</html>
