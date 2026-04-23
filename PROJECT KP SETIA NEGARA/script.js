@@ -243,3 +243,84 @@ window.addEventListener("load", function(){
         preloader.classList.add("hide");
     }, 500);
 });
+
+
+// FORM PENDAFTARAN
+const pendaftaranForm = document.getElementById("pendaftaranForm");
+const successMsg = document.getElementById("successMessage");
+
+if (pendaftaranForm) {
+    pendaftaranForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        pendaftaranForm.style.display = "none";
+        successMsg.style.display = "block";
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById("slider");
+  const track = document.getElementById("track");
+  if (!slider || !track) return;
+
+  // Duplicate untuk loop
+  track.innerHTML += track.innerHTML;
+
+  let isDown = false;
+  let isPaused = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  const speed = 0.8;
+
+  function autoSlide() {
+    if (!isPaused && !isDown) {
+      slider.scrollLeft += speed;
+
+      // Reset tanpa patah
+      if (slider.scrollLeft >= track.scrollWidth / 2) {
+        slider.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(autoSlide);
+  }
+  autoSlide();
+
+  // Hover pause
+  slider.addEventListener("mouseenter", () => isPaused = true);
+  slider.addEventListener("mouseleave", () => isPaused = false);
+
+  // Mouse drag
+  slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX;
+    scrollLeft = slider.scrollLeft;
+    slider.style.cursor = "grabbing";
+  });
+
+  window.addEventListener("mouseup", () => {
+    isDown = false;
+    slider.style.cursor = "grab";
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    const walk = (e.pageX - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch
+  slider.addEventListener("touchstart", (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("touchend", () => isDown = false);
+
+  slider.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    const walk = (e.touches[0].pageX - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+});

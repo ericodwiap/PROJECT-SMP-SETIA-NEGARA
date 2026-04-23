@@ -13,15 +13,14 @@
     <div class="popup-card">
 
         <span class="close-btn">&times;</span>
-
         <button class="prev">&#10094;</button>
 
         <div class="popup-slider">
             <a href="pendaftaran.html">
-                <img src="image/logosetianegara.jpg.png" class="popup-slide active">
+                <img src="asset/icon/logosmp.png" class="popup-slide active">
             </a>
-            <a href="spmb.html">
-                <img src="image/spmb.jpg.jpeg" class="popup-slide">
+            <a href="page/pendaftaran.html">
+                <img src="asset/image/spmb.jpeg" class="popup-slide">
             </a>
         </div>
 
@@ -30,13 +29,14 @@
     </div>
 </div>
 <body>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
 
             <div class="nav-logo">
                 <a href="#beranda" class="nav-logo">
-                    <img src="image/logosetianegara.jpg.png" alt="Logo SMP Setia Negara">
+                    <img src="asset/icon/logosmp.png" alt="Logo SMP Setia Negara">
                     <span>SMP Setia Negara</span>
                 </a>
             </div>
@@ -54,10 +54,11 @@
                     <a href="#" class="nav-link">Informasi ▼</a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="pagefasilitas/fasilitas.html">Fasilitas</a></li>
-                        <li><a href="pageekskul/ekskul.html">Ekstrakurikuler</a></li>
-                        <li><a href="pageprestasi/prestasi.html">Prestasi</a></li>
-                        <li><a href="pagependaftaran/pendaftaran.html">Pendaftaran</a></li>
+                        <li><a href="page/fasilitas/indexF.html">Fasilitas</a></li>
+                        <li><a href="page/ekskul/indexE.html">Ekstrakurikuler</a></li> 
+                        <li><a href="page/keunggulan.html">Unggulan</a></li>
+                        <li><a href="page/biaya.html">Biaya Pendidikan</a></li>
+                        <li><a href="page/pendaftaran.html">Pendaftaran</a></li>
                     </ul>
                 </li>
             </ul>
@@ -70,11 +71,11 @@
         <div class="slider">
 
             <div class="slide active">
-                <img src="image/gedung 1.jpg" alt="Gedung Sekolah 1">
+                <img src="asset/image/gedung 1.jpg" alt="Gedung Sekolah 1">
             </div>
 
             <div class="slide">
-                <img src="image/foto2.jpg" alt="Gedung Sekolah 2">
+                <img src="asset/image/foto2.jpg" alt="Gedung Sekolah 2">
             </div>
 
             <div class="overlay"></div>
@@ -98,7 +99,7 @@
         <div class="container">
             <div class="profil-content">
                 <div class="profil-image">
-                    <img src="image/gedung 1.jpg" alt="Gedung Sekolah">
+                    <img src="asset/image/gedung 1.jpg" alt="Gedung Sekolah">
                 </div>
                 <div class="profil-text">
                     <h2>Tentang SMP Setia Negara</h2>
@@ -168,6 +169,90 @@
         </div>
     </section>
 
+    <!--GALERI GURU SLIDE-->
+    <section class="guru-section">
+        <div class="section">
+            <h1 class="title">GALERI GURU</h1>
+            
+            <div class="slider" id="slider">
+            <div class="slider-track" id="track">
+                
+                <!-- CARD 1 -->
+                <div class="card">
+                <img src="---" alt="Guru 1">
+                <div class="card-content">
+                    <h3>nama guru 1</h3>
+                    <p>mapel</p>
+                    <div class="status">Aktif</div>
+                </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="card">
+                <img src="---" alt="Guru 2">
+                <div class="card-content">
+                    <h3>nama guru 2</h3>
+                    <p>mapel</p>
+                    <div class="status">Aktif</div>
+                </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="card">
+                <img src="h---" alt="Guru 3">
+                <div class="card-content">
+                    <h3>nama guru 3</h3>
+                    <p>mapel</p>
+                    <div class="status">Aktif</div>
+                </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="card">
+                <img src="---" alt="Guru 4">
+                <div class="card-content">
+                    <h3>nama guru 4</h3>
+                    <p>mapel</p>
+                    <div class="status">Aktif</div>
+                </div>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="card">
+                <img src="---" alt="Guru 5">
+                <div class="card-content">
+                    <h3>nama guru 5</h3>
+                    <p>mapel</p>
+                    <div class="status">Aktif</div>
+                </div>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="card">
+                <img src="---" alt="Guru 6">
+                <div class="card-content">
+                    <h3>nama guru 6</h3>
+                    <p>mapel</p>
+                    <div class="status">Aktif</div>
+                </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PRESTASI -->
+    <section class="prestasi" id="prestasi">
+        <div class="prestasi-container">
+            <h2>Prestasi Sekolah</h2>
+            <p>Berbagai pencapaian siswa SMP Setia Negara di tingkat akademik maupun non-akademik.</p>
+
+            <!-- BUTTON PRESTASI -->
+            <a href="page/prestasi.html" class="btn-prestasi">Lihat Semua Prestasi</a>
+        </div>
+    </section>
+
     <!-- Section Denah & Kontak -->
     <section id="denah" class="denah">
         <div class="container">
@@ -181,12 +266,13 @@
                 <div class="kontak-info">
                     <h3>Jam Operasional</h3>
                     <div class="jam-operasional">
-                        <p><i class="fas fa-clock"></i> Senin-Jumat: 07:30 - 14:00</p>
+                        <p><i class="fas fa-clock"></i> Senin-Kamis: 06:45 - 14:00</p>
+                        <p><i class="fas fa-clock"></i> Jumat: 06:45 - 11.05</p>
                     </div>
                     <h3>Alamat</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Sawangan No.23, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16432</p>
-                    <p><i class="fas fa-phone"></i> (021)77215461</p>
-                    <p><i class="fas fa-envelope"></i> tusmp_setianegara@yahoo.co.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Sawangan No.23, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16432 </p>
+                    <p><i class="fas fa-phone"></i> (021)77215461 </p>
+                    <p><i class="fas fa-envelope"></i>  smpsetianegaradepok@gmail.com </p>
                 </div>
             </div>
         </div>
@@ -236,7 +322,7 @@
 <div id="preloader">
     <div class="loader-wrapper">
         <div class="spinner"></div>
-        <img src="../image/logosetianegara.jpg.png" alt="Logo SMP" class="loader-logo">
+        <img src="asset/icon/logosmp.png" alt="Logo SMP" class="loader-logo">
     </div>
 </div>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMB SMP Setia Negara</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../#beranda" class="nav-logo">
+                    <img src="../asset/icon/logosmp.png" alt="Logo SMP Setia Negara">
+                    <span>SMP Setia Negara</span>
+                </a>
+            </div>
+
+            <div class="nav-back">
+                <a href="../index.html" class="btn-back">
+                    ← Kembali
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Informasi Pendaftaran</h2>
+
+        <div class="info-grid">
+            <div class="card">
+                <i class="fas fa-calendar"></i>
+                <h3>Jadwal</h3>
+                <p>01 Mei - 30 Juni 2026</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Persyaratan</h3>
+                <p>Fotokopi KK, Akta Lahir, Raport</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-school"></i>
+                <h3>Kuota</h3>
+                <p>120 Siswa / Tahun Ajaran</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Formulir Pendaftaran</h2>
+
+        <div class="form-box">
+            <form id="pendaftaranForm">
+
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Data Diri Siswa</h3>
+
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label>NISN</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tempat Lahir</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-folder-open"></i> Upload Berkas Persyaratan</h3>
+
+                    <div class="form-group">
+                        <label>Upload Fc. Kartu Keluarga (KK)</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Fc. Akte Kelahiran</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Fc. KTP Orang Tua</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Fc. Ijazah / SKL SD/MI</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Fc. Transkip Nilai</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Hasil TKA (Jika Ada)</label>
+                        <input type="file">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-check-circle"></i> Konfirmasi Pendaftaran</h3>
+
+                    <div class="form-group">
+                        <label>Konfirmasi Data</label>
+                        <textarea rows="4" readonly>Pastikan seluruh data sudah benar sebelum submit.</textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit">Submit Pendaftaran</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <div id="successMessage" class="success-message" style="display:none;">
+                <i class="fas fa-check-circle"></i>
+                <h2>Pendaftaran Berhasil!</h2>
+                <p>Data Anda telah berhasil dikirim.</p>
+                <span>Terima kasih telah mendaftar di SMP Setia Negara.</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 SMP Setia Negara - All Rights Reserved</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

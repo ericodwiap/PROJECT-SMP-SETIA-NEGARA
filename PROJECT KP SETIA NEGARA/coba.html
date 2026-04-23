@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri Guru - Premium</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 60px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.slider {
+  overflow: hidden;
+  cursor: grab;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.slider:active {
+  cursor: grabbing;
+}
+
+.slider-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  padding: 20px 40px;
+  transition: transform 0.3s ease;
+}
+
+.card {
+  min-width: 380px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.1),
+    0 5px 15px rgba(0,0,0,0.07);
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255,255,255,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.2),
+    0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.status {
+  display: inline-block;
+  background: #4CAF50;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .card {
+    min-width: 320px;
+    padding: 20px;
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-width: 280px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* LOADING */
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+  <h1 class="title">👨‍🏫 Galeri Guru Unggulan</h1>
+  
+  <div class="slider" id="slider">
+    <div class="slider-track" id="track">
+      <!-- Cards akan di-generate via JS untuk performa optimal -->
+    </div>
+  </div>
+</div>
+
+<script>
+class GuruSlider {
+  constructor() {
+    this.slider = document.getElementById("slider");
+    this.track = document.getElementById("track");
+    this.cardsData = [
+      { name: "Budi Santoso, S.Pd", desc: "Matematika Senior", status: "Aktif", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" },
+      { name: "Siti Aisyah, M.Pd", desc: "Bahasa Indonesia", status: "Aktif", img: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" },
+      { name: "Dr. Ahmad Fauzi", desc: "Fisika & Kimia", status: "Aktif", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" },
+      { name: "Rina Kartika, S.Pd", desc: "Bahasa Inggris", status: "Aktif", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" },
+      { name: "Prof. Hasan Basri", desc: "Ekonomi & Bisnis", status: "Aktif", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face" },
+      { name: "Dewi Sartika, M.Si", desc: "Biologi", status: "Aktif", img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=300&h=300&fit=crop&crop=face" }
+    ];
+    
+    this.speed = 0.8;
+    this.isPaused = false;
+    this.isDown = false;
+    this.startX = 0;
+    this.scrollLeft = 0;
+    this.isInitialized = false;
+    
+    this.init();
+  }
+  
+  init() {
+    this.generateCards();
+    this.duplicateTrack();
+    this.bindEvents();
+    this.startAutoSlide();
+    this.isInitialized = true;
+  }
+  
+  generateCards() {
+    this.cardsData.forEach(data => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${data.img}" alt="${data.name}" loading="lazy">
+        <div class="card-content">
+          <h3>${data.name}</h3>
+          <p>${data.desc}</p>
+          <div class="status">${data.status}</div>
+        </div>
+      `;
+      this.track.appendChild(card);
+    });
+  }
+  
+  duplicateTrack() {
+    this.track.innerHTML += this.track.innerHTML;
+  }
+  
+  startAutoSlide() {
+    const animate = () => {
+      if (!this.isPaused) {
+        this.slider.scrollLeft += this.speed;
+        if (this.slider.scrollLeft >= this.track.scrollWidth / 2) {
+          this.slider.scrollLeft = 0;
+        }
+      }
+      requestAnimationFrame(animate);
+    };
+    animate();
+  }
+  
+  bindEvents() {
+    // Hover Pause
+    this.slider.addEventListener("mouseenter", () => {
+      this.isPaused = true;
+    });
+    
+    this.slider.addEventListener("mouseleave", () => {
+      this.isPaused = false;
+    });
+    
+    // Mouse Drag
+    this.slider.addEventListener("mousedown", (e) => {
+      this.isDown = true;
+      this.isPaused = true;
+      this.startX = e.pageX - this.slider.offsetLeft;
+      this.scrollLeft = this.slider.scrollLeft;
+      this.slider.classList.add('loading');
+    });
+    
+    this.slider.addEventListener("mouseup", () => {
+      this.isDown = false;
+      this.isPaused = false;
+      this.slider.classList.remove('loading');
+    });
+    
+    this.slider.addEventListener("mouseleave", () => {
+      this.isDown = false;
+      this.isPaused = false;
+      this.slider.classList.remove('loading');
+    });
+    
+    this.slider.addEventListener("mousemove", (e) => {
+      if (!this.isDown) return;
+      e.preventDefault();
+      const x = e.pageX - this.slider.offsetLeft;
+      const walk = (x - this.startX) * 2;
+      this.slider.scrollLeft = this.scrollLeft - walk;
+    });
+    
+    // Touch Events
+    this.slider.addEventListener("touchstart", (e) => {
+      this.isPaused = true;
+      this.startX = e.touches[0].pageX;
+      this.scrollLeft = this.slider.scrollLeft;
+    });
+    
+    this.slider.addEventListener("touchend", () => {
+      this.isPaused = false;
+    });
+    
+    this.slider.addEventListener("touchmove", (e) => {
+      const walk = (e.touches[0].pageX - this.startX) * 2;
+      this.slider.scrollLeft = this.scrollLeft - walk;
+    });
+    
+    // Prevent text selection
+    this.slider.addEventListener('selectstart', () => false);
+  }
+}
+
+// Initialize slider when DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => new GuruSlider());
+} else {
+  new GuruSlider();
+}
+</script>
+
+</body>
+</html>
