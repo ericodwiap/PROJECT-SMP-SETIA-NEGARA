@@ -91,7 +91,6 @@
         
         .btn-submit { background-color: #1b3a6b; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 10px; }
         .btn-submit:hover { background-color: #29528a; }
-
     </style>
 </head>
 <body>
@@ -106,13 +105,13 @@
                 <a href="#" class="menu-link" onclick="switchMenu(event, 'menu-spmb')"><i class="bi bi-megaphone"></i> Banner PPDB / SPMB</a>
                 <a href="#" class="menu-link" onclick="switchMenu(event, 'menu-guru')"><i class="bi bi-person-badge"></i> Data Guru & Staf</a>
                 <a href="#" class="menu-link" onclick="switchMenu(event, 'menu-prestasi')"><i class="bi bi-trophy"></i> Prestasi Sekolah</a>
-                <a href="#" class="menu-link" onclick="switchMenu(event, 'menu-fasilitas')"><i class="bi bi-building-gear"></i> Fasilitas & Ekskul</a>
+                <a href="#" class="menu-link" onclick="switchMenu(event, 'menu-fasilitas')"><i class="bi bi-building-gear"></i> Fasilitas, Ekskul & Unggulan</a>
                 <a href="#" class="menu-link" onclick="switchMenu(event, 'menu-biaya')"><i class="bi bi-cash-coin"></i> Info Biaya & Seragam</a>
             </div>
         </div>
         <div class="sidebar-footer">
-            <a href="/PROJECT KP SETIA NEGARA/index.html" class="btn-logout">
-                <i class="bi bi-box-arrow-left"></i> Kembali ke Website
+            <a href="login.html" class="btn-logout">
+                <i class="bi bi-box-arrow-left"></i> Keluar (Log Out)
             </a>
         </div>
     </div>
@@ -131,7 +130,7 @@
             <div id="menu-dashboard" class="menu-content">
                 <div class="welcome-box">
                     <h1>Selamat Datang di Ruang Kendali Web</h1>
-                    <p>Ubah konten, tambahkan prestasi, manajemen data guru, dan update informasi biaya sekolah secara instan.</p>
+                    <p>Ubah konten, tambahkan prestasi, manajemen data guru, and update informasi biaya sekolah secara instan.</p>
                 </div>
                 <div class="cards-grid">
                     <div class="card"><div class="card-info"><h3>Total Guru</h3><p>6</p></div><div class="card-icon"><i class="bi bi-people"></i></div></div>
@@ -146,7 +145,7 @@
                     <p style="font-size: 14px; color:#555; margin-bottom: 15px;">Ganti gambar selebaran brosur pendaftaran yang muncul saat pertama kali website diakses.</p>
                     <div style="background:#f8f9fa; padding:20px; border-radius:8px; border: 1px dashed #ccc;">
                         <p style="font-size: 13px; margin-bottom: 10px;"><strong>Status Pop-up Saat Ini:</strong> <span class="status-badge">Aktif Muncul</span></p>
-                        <input type="file" style="margin-bottom:15px; display:block;"><button class="btn-add"><i class="bi bi-upload"></i> Simpan & Perbarui Brosur</button>
+                        <input type="file" id="input-spmb" style="margin-bottom:15px; display:block;"><button class="btn-add" onclick="updateBrosurSPMB()"><i class="bi bi-upload"></i> Simpan & Perbarui Brosur</button>
                     </div>
                 </div>
             </div>
@@ -190,45 +189,38 @@
 
             <div id="menu-fasilitas" class="menu-content" style="display: none;">
     <div class="data-section">
-        <h2><i class="bi bi-building-gear"></i> Perbarui Gambar Fasilitas & Kegiatan Ekskul</h2>
+        <h2><i class="bi bi-building-gear"></i> Perbarui Gambar Fasilitas, Ekskul & Unggulan</h2>
         <p style="font-size:14px; color:#666; margin-bottom: 20px;">
-            Gunakan form di bawah ini jika ada renovasi fasilitas gedung atau foto kegiatan ekskul terbaru untuk diupdate ke website utama.
+            Pilih kategori halaman, lalu ketik nama item atau komponen spesifik secara bebas untuk memperbarui gambarnya di website utama.
         </p>
         
-        <form onsubmit="saveData(event, 'Fasilitas/Ekskul')" style="max-width: 600px; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e1e8ed;">
+        <form onsubmit="handleImageUploadSimulation(event)" style="max-width: 600px; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e1e8ed;">
             <div class="form-group">
                 <label>Pilih Kategori Halaman</label>
-                <select class="form-control" required>
+                <select id="upload-kategori" class="form-control" required>
                     <option value="">-- Pilih Kategori --</option>
-                    <option value="fasilitas">Fasilitas Sekolah (Gedung/Lab)</option>
+                    <option value="fasilitas">Fasilitas Sekolah (Gedung/Lab/Perpus)</option>
                     <option value="ekskul">Kegiatan Ekstrakurikuler</option>
+                    <option value="unggulan">Halaman Unggulan Sekolah (Termasuk Banner Utama)</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label>Pilih Nama Item Spesifik</label>
-                <select class="form-control" required>
-                    <option value="">-- Pilih Item --</option>
-                    <option value="lab-komputer">Lab Komputer (Kondisi Baru/Renovasi)</option>
-                    <option value="lab-ipa">Lab IPA</option>
-                    <option value="perpus">Perpustakaan</option>
-                    <option value="pramuka">Ekskul - Pramuka (Kegiatan Baru)</option>
-                    <option value="paskibra">Ekskul - Paskibra</option>
-                    <option value="futsal">Ekskul - Futsal</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Upload Foto Terbaru (Format: JPG/PNG)</label>
-                <input type="file" class="form-control" accept="image/*" required>
-                <small style="color: #7f8c8d; font-size: 11px; display: block; margin-top: 5px;">
-                    *Tips: Pastikan ukuran file di bawah 2MB agar loading website utama tetap cepat.
+                <label>Nama Item / Komponen Spesifik (Ketik Manual)</label>
+                <input type="text" id="upload-item-custom" class="form-control" placeholder="Contoh: lab-komputer, taekwondo, atau ung-hero" required autocomplete="off">
+                <small style="color: #e67e22; font-size: 11px; display: block; margin-top: 5px;">
+                    *Penting: Masukkan nama panggil / ID yang sesuai dengan tag gambar di halaman web utama.
                 </small>
             </div>
 
             <div class="form-group">
+                <label>Upload Foto Terbaru (Format: JPG/PNG)</label>
+                <input type="file" id="upload-file-gambar" class="form-control" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
                 <label>Keterangan / Deskripsi Kegiatan Baru (Opsional)</label>
-                <textarea class="form-control" rows="3" placeholder="Contoh: Suasana Lab Komputer setelah renovasi fasilitas PC core i5 tahun 2026..."></textarea>
+                <textarea class="form-control" rows="3" placeholder="Contoh: Deskripsi pembaruan konten..."></textarea>
             </div>
 
             <button type="submit" class="btn-submit" style="width: auto; padding: 10px 20px;"><i class="bi bi-cloud-arrow-up"></i> Upload & Sinkronisasi Gambar</button>
@@ -259,107 +251,242 @@
         function switchMenu(event, menuId) {
             event.preventDefault();
             
-            // Sembunyikan semua menu
             const allContent = document.querySelectorAll('.menu-content');
             allContent.forEach(content => content.style.display = 'none');
 
-            // Hapus class active sidebar
             const allLinks = document.querySelectorAll('.menu-link');
             allLinks.forEach(link => link.classList.remove('active'));
 
-            // Tampilkan menu terpilih
             document.getElementById(menuId).style.display = 'block';
             event.currentTarget.classList.add('active');
 
-            // Ganti judul Navbar
             const menuText = event.currentTarget.innerText.trim();
             document.querySelector('.navbar .page-title').innerText = "Ruang Kendali > " + menuText;
         }
 
-        // ================= FUNGSI JAVASCRIPT UNTUK MODAL POP-UP =================
-        
-        // 1. Fungsi buat memunculkan Pop-up Form
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
         }
 
-        // 2. Fungsi buat menutup Pop-up Form lewat tombol silang (X)
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
         }
 
-        // 3. Fungsi otomatis menutup Pop-up form kalau user nge-klik area hitam di luar kotak form
         function closeModalOutside(event, modalId) {
             if (event.target.id === modalId) {
                 closeModal(modalId);
             }
         }
 
-        // 4. Simulasi notifikasi sukses pas admin klik tombol "Simpan"
         function saveData(event, modalId) {
-            event.preventDefault(); // Mencegah page reload
+            event.preventDefault();
             alert("Mantap! Data berhasil disimpan (Simulasi Database Berhasil).");
             closeModal(modalId);
         }
+
+        // ================= LOGIKA SIMULASI UPDATE GAMBAR REAL-TIME =================
+        // GANTI FUNGSI LAMA LU DENGAN INI DI DALAM TAG <SCRIPT>
+function handleImageUploadSimulation(event) {
+    event.preventDefault();
+    
+    // Membaca ID item unik langsung dari ketikan keyboard si admin
+    const itemTerpilih = document.getElementById("upload-item-custom").value.trim().toLowerCase();
+    const fileInput = document.getElementById("upload-file-gambar");
+    const file = fileInput.files[0];
+
+    if (!itemTerpilih) {
+        alert("Ketikkan Nama Item Spesifiknya dulu, bro!");
+        return;
+    }
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            // Menyimpan dengan kunci ID dinamis sesuai ketikan admin
+            localStorage.setItem("update-gambar-" + itemTerpilih, e.target.result);
+            alert("Sukses otomatis! Gambar untuk item id '" + itemTerpilih + "' berhasil diperbarui di memori sistem lokal.");
+        }
+        reader.readAsDataURL(file);
+    } else {
+        alert("Pilih file gambarnya dulu, bro!");
+    }
+}
+
+        function updateBrosurSPMB() {
+            const fileInput = document.getElementById("input-spmb");
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    localStorage.setItem("update-gambar-spmb", e.target.result);
+                    alert("Sukses! Brosur Utama PPDB berhasil di-update.");
+                }
+                reader.readAsDataURL(file);
+            } else {
+                alert("Pilih file gambarnya dulu, bro!");
+            }
+        }
+
+        function updateDropdownItem() {
+    const kategori = document.getElementById("upload-kategori").value;
+    const itemSelect = document.getElementById("upload-item");
+
+    // Bersihkan semua pilihan item lama
+    itemSelect.innerHTML = '<option value="">-- Pilih Item --</option>';
+
+    // Jika kategori belum dipilih, stop fungsi di sini
+    if (kategori === "") {
+        itemSelect.innerHTML = '<option value="">-- Pilih Kategori Terlebih Dahulu --</option>';
+        return;
+    }
+
+    // Jalankan logika penyaringan berdasarkan kategori yang dipilih
+    if (kategori === "fasilitas") {
+        const opsiFasilitas = [
+            { value: "lab-komputer", text: "Lab Computar (Kondisi Baru/Renovasi)" },
+            { value: "lab-ipa", text: "Lab IPA" },
+            { value: "perpus", text: "Perpustakaan" }
+        ];
+        opsiFasilitas.forEach(item => {
+            itemSelect.innerHTML += `<option value="${item.value}">${item.text}</option>`;
+        });
+
+    } else if (kategori === "ekskul") {
+        const opsiEkskul = [
+            { value: "taekwondo", text: "Ekskul - Taekwondo" },
+            { value: "pramuka", text: "Ekskul - Pramuka (Kegiatan Baru)" },
+            { value: "paskibra", text: "Ekskul - Paskibra" },
+            { value: "futsal", text: "Ekskul - Futsal" }
+        ];
+        opsiEkskul.forEach(item => {
+            itemSelect.innerHTML += `<option value="${item.value}">${item.text}</option>`;
+        });
+
+    // Cari bagian ini di dalam function updateDropdownItem()
+} else if (kategori === "unggulan") {
+    const opsiUnggulan = [
+        { value: "ung-hero", text: "Banner Utama - Gedung Sekolah" }, // <-- TAMBAHKAN INI
+        { value: "ung-akreditasi", text: "Unggulan - Akreditasi A" },
+        { value: "ung-shalat", text: "Unggulan - Shalat Dzuhur" },
+        { value: "ung-literasi", text: "Unggulan - Literasi" },
+        { value: "ung-tahfiz", text: "Unggulan - Tahfiz" }
+    ];
+    opsiUnggulan.forEach(item => {
+        itemSelect.innerHTML += `<option value="${item.value}">${item.text}</option>`;
+    });
+}
+}
+
     </script>
 
     <div id="modal-guru" class="modal-overlay" onclick="closeModalOutside(event, 'modal-guru')">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3><i class="bi bi-person-plus"></i> Tambah Data Guru Baru</h3>
-                <button class="modal-close" onclick="closeModal('modal-guru')">&times;</button>
-            </div>
-            <form onsubmit="saveData(event, 'modal-guru')">
+    <div class="modal-box" style="width: 550px; max-height: 90vh; overflow-y: auto;">
+        <div class="modal-header">
+            <h3><i class="bi bi-person-plus"></i> Tambah Data Guru & Staf Lengkap</h3>
+            <button class="modal-close" onclick="closeModal('modal-guru')">&times;</button>
+        </div>
+        <form onsubmit="saveData(event, 'modal-guru')">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="form-group">
                     <label>Nama Lengkap & Gelar</label>
-                    <input type="text" class="form-control" placeholder="Contoh: Drs. H. Supriadi" required>
+                    <input type="text" class="form-control" placeholder="Nama Guru" required>
                 </div>
                 <div class="form-group">
                     <label>Nomor Induk Pegawai (NIP)</label>
-                    <input type="number" class="form-control" placeholder="Contoh: 1987654321" required>
+                    <input type="number" class="form-control" placeholder="NIP" required>
                 </div>
                 <div class="form-group">
-                    <label>Mata Pelajaran yang Diampu</label>
-                    <input type="text" class="form-control" placeholder="Contoh: Matematika / Bahasa Inggris" required>
+                    <label>Mata Pelajaran</label>
+                    <input type="text" class="form-control" placeholder="Contoh: Matematika" required>
                 </div>
                 <div class="form-group">
-                    <label>Upload Foto Guru</label>
-                    <input type="file" class="form-control" accept="image/*">
-                </div>
-                <button type="submit" class="btn-submit">Simpan Data Guru</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="modal-prestasi" class="modal-overlay" onclick="closeModalOutside(event, 'modal-prestasi')">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3><i class="bi bi-award"></i> Tambah Prestasi Sekolah</h3>
-                <button class="modal-close" onclick="closeModal('modal-prestasi')">&times;</button>
-            </div>
-            <form onsubmit="saveData(event, 'modal-prestasi')">
-                <div class="form-group">
-                    <label>Tahun Raihan</label>
-                    <input type="number" class="form-control" placeholder="Contoh: 2026" required>
-                </div>
-                <div class="form-group">
-                    <label>Judul Prestasi / Penghargaan</label>
-                    <input type="text" class="form-control" placeholder="Contoh: Juara 1 Olimpiade Fisika" required>
-                </div>
-                <div class="form-group">
-                    <label>Tingkat Kompetisi</label>
+                    <label>Jenis Kelamin</label>
                     <select class="form-control" required>
-                        <option value="">-- Pilih Tingkat --</option>
-                        <option value="Kota">Kota / Kota Depok</option>
-                        <option value="Provinsi">Provinsi</option>
-                        <option value="Nasional">Nasional</option>
-                        <option value="Internasional">Internasional</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Simpan Data Prestasi</button>
+                <div class="form-group">
+                    <label>Pendidikan Terakhir</label>
+                    <input type="text" class="form-control" placeholder="Contoh: S1 Pendidikan" required>
+                </div>
+                <div class="form-group">
+                    <label>Status Kepegawaian</label>
+                    <input type="text" class="form-control" placeholder="Contoh: Aktif / Guru Tetap" required>
+                </div>
+                <div class="form-group">
+                    <label>Jabatan Struktur</label>
+                    <input type="text" class="form-control" placeholder="Contoh: Wali Kelas VIII-A">
+                </div>
+                <div class="form-group">
+                    <label>Tugas Tambahan</label>
+                    <input type="text" class="form-control" placeholder="Contoh: Pembina OSIS / Pramuka">
+                </div>
+                <div class="form-group">
+                    <label>Mulai Mengajar (Tahun)</label>
+                    <input type="number" class="form-control" placeholder="Contoh: 2012">
+                </div>
+                <div class="form-group">
+                    <label>Email Resmi</label>
+                    <input type="email" class="form-control" placeholder="namaguru@smpnetia.sch.id">
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
+                <div class="form-group"><label>Instagram</label><input type="text" class="form-control" placeholder="@username"></div>
+                <div class="form-group"><label>Facebook</label><input type="text" class="form-control" placeholder="Nama Akun"></div>
+                <div class="form-group"><label>TikTok</label><input type="text" class="form-control" placeholder="@username"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Biografi / Deskripsi Singkat Guru</label>
+                <textarea class="form-control" rows="2" placeholder="Beliau merupakan guru yang berpengalaman, disiplin, dan berdedikasi tinggi..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Upload Foto Profil Guru</label>
+                <input type="file" class="form-control" accept="image/*">
+            </div>
+            <button type="submit" class="btn-submit">Simpan Data Guru Lengkap</button>
             </form>
+            </div>
         </div>
+
+
+    <div id="modal-prestasi" class="modal-overlay" onclick="closeModalOutside(event, 'modal-prestasi')">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3><i class="bi bi-award"></i> Tambah Prestasi Sekolah</h3>
+            <button class="modal-close" onclick="closeModal('modal-prestasi')">&times;</button>
+        </div>
+        <form onsubmit="saveData(event, 'modal-prestasi')">
+            <div class="form-group">
+                <label>Tahun Raihan</label>
+                <input type="number" class="form-control" placeholder="Contoh: 2026" required>
+            </div>
+            <div class="form-group">
+                <label>Judul Prestasi / Penghargaan</label>
+                <input type="text" class="form-control" placeholder="Contoh: Juara 1 Olimpiade Fisika" required>
+            </div>
+            <div class="form-group">
+                <label>Tingkat Kompetisi</label>
+                <select class="form-control" required>
+                    <option value="">-- Pilih Tingkat --</option>
+                    <option value="Kota">Kota / Kota Depok</option>
+                    <option value="Provinsi">Provinsi</option>
+                    <option value="Nasional">Nasional</option>
+                    <option value="Internasional">Internasional</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Upload Foto Dokumentasi Penghargaan / Piala</label>
+                <input type="file" class="form-control" accept="image/*">
+                <small style="color: #7f8c8d; font-size: 11px;">*Opsional: Foto penyerahan piala lomba siswa.</small>
+            </div>
+            <button type="submit" class="btn-submit">Simpan Data Prestasi</button>
+        </form>
     </div>
+</div>
 
 </body>
 </html>
