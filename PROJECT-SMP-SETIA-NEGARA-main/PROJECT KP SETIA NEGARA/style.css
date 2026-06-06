@@ -1081,6 +1081,39 @@ body{
     margin-top:30px;
 }
 
+/* ======================
+   PERSYARATAN
+====================== */
+
+.persyaratan-box{
+    width: 88%;
+    margin-top: 40px;
+    background: #f2d456;
+    border-radius: 30px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+.persyaratan-box h3{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#000;
+}
+
+.persyaratan-box ul{
+    margin:0;
+    padding-left:25px;
+}
+
+.persyaratan-box li{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+    color:#000;
+}
+
 /*===================
       KEUNGGULAN
 ====================*/
@@ -2053,6 +2086,20 @@ body{
 
     .detail-content{
         flex-direction: column;
+    }
+
+    /*persyaratan*/
+    .persyaratan-box{
+        padding:20px;
+        border-radius:20px;
+    }
+
+    .persyaratan-box h3{
+        font-size:22px;
+    }
+
+    .persyaratan-box li{
+        font-size:16px;
     }
 
 
