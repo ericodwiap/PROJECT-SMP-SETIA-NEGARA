@@ -1440,6 +1440,14 @@ body{
     font-size:1.2rem;
 }
 
+.ekskul-card img{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
 
 /* GRID CARD */
 .ekskul-section{
@@ -1586,6 +1594,14 @@ body{
     display: block;
     text-decoration: none;
     color: inherit;
+}
+
+.fasilitas-box img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 12px;
 }
 
 /* DETAIL FASILITAS */
